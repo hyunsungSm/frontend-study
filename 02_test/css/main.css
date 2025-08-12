@@ -1,0 +1,11 @@
+div{
+  color: red;
+  font-size: 100px;
+}
+/* index.html에 연결하지 않으면 적용 안됨 */
+
+.logo {
+  width: 500px;
+  height: 500px;
+  background-image: url(../images/logo.png);
+}
