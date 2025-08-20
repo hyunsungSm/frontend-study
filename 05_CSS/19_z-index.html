@@ -70,13 +70,42 @@
   </style>
 </head>
 <body>
-  <div class="parent">
-    <div class="child-1">1</div>
-    <div class="child-2">2</div>
-    <div class="child-3">3</div>
+  <div class="parent" onclick="print(event, 'parent')">
+    <div class="child-1" onclick="print(event, 'child-1')">1</div>
+    <div class="child-2" onclick="print(event, 'child-2')">2</div>
+    <div class="child-3" onclick="print(event, 'child-3')">3</div>
   </div>
+
+  <script>
+    // 밑에 깔린 요소도 같이 클릭 되는지 확인하기 위한 함수 
+    function print(event, el) {
+      event.stopPropagation(); // 이벤트가 전파되는 것을 막음(전파: 부모 요소로 버블링 하거나 자식 요소로 캡쳐링 하는 것을 의미)
+      console.log(el);
+    }
+    // (참고) 이벤트 버블링
+    // 이벤트가 제일 깊은 곳에 있는 요소에서 시작해 부모 요소를 거슬러 올라가며 발생하는 모양이 마치 물속 거품(bubble)과 닮았기 때문
+    // 몇몇 이벤트(예: focus 등)를 제외하곤 대부분의 이벤트는 버블링 됨
+
+    // 버블링을 잘 알고 있어야 버그 수정이 용이
+    // 예: 게시물에 하트 기능, 파일 보관함에 수정 기능에서 누르면 들어가지는 버그
+  </script> 
 
   <!-- (참고) absolute, fixed가 지정된 요소는 display가 block으로 변경됨 -->
   <span>123</span>
 </body>
 </html>
+
+<!-- (정리) Quiz
+  Q1: position 속성의 기본값은?
+  A1: static
+
+  Q2: 상위 요소 중 위치 기준이 존재하는 가장 가까운 요소를(위치상 부모 요소)를 기준으로 배치하는 position 속성의 값은?
+  A2: absolute
+
+  Q3: 뷰포트를 기준으로 배치하는 position 속성의 값은?
+  A3: fixed
+
+  Q4: display 속성이 block의 값으로 바뀌지 않는 position 속성의 값은?
+    1) absolute  2) relative  3) fixed
+  A4: relative
+-->
