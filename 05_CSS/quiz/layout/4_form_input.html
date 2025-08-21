@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+
+    .text-input{
+      width: 120px;
+      padding: 6px 10px;
+      font-size: 20px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      transition: 0.5s;
+    }
+    /* Quiz: focus 됐을 때 테두리색 변경(#f00) */
+    .text-input:focus{
+      border-color: #f00;
+    }
+
+    .form-background{
+      height: 800px;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+    }
+
+    .form-container{
+      width: 80%;
+      height: 80%;
+      max-width: 700px;
+      background-color: white;
+      justify-content: center;
+      align-self: center;
+    }
+    .form-container > form{
+      padding: 0 20px;
+    }
+    .form-container > form > h3{
+      margin-top: 100px;
+    }
+
+    input{
+      width: 100%;
+      height: 30px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid lightgray;
+    }
+
+    div .name{
+      display: flex;
+    }
+
+    .name > div:first-child{
+      width: 50%;
+    }
+    .name > div:last-child{
+      width: 50%;
+    }
+    .name > div:first-child + div:last-child{
+      margin-left: 10px;
+    }
+
+    textarea{
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid lightgray;
+      resize: none;
+      outline: none;
+      transition: 1s;
+    }
+
+    textarea:focus{
+      border-color: aqua;
+    }
+
+    .last{
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    .agree{
+      display: flex;
+    }
+
+    .last {
+      margin-top: 10px;
+    }
+
+    .last input{
+      height: 20px;
+    }
+
+    .send button{
+      width: 110px;
+      height: 30px;
+      background-color: coral;
+      color: white;
+      border-radius: 5px;
+      border: 2px solid white;
+    }
+  </style>  
+</head>
+<body>
+  <h2>연습</h2>
+  <form>
+    <input type="text">
+    <input type="text" class="text-input">
+    <button type="submit">전송</button>
+    <!-- <form> 태그 안에서 버튼의 타입을 안써주면 submit으로 동작함 
+        type은 명시적으로 써주는 것을 권장 -->
+
+    <!-- input 태그 쓸 때 label 태그도 같이 사용(권장) -->
+    <p>
+      <label for="name">너의 이름은</label>
+    </p>
+    <input type="text" id="name" class="text-input">
+  </form>
+
+  <h2>실전</h2>
+  <!-- 박스부터 그리기 -->
+  <div class="form-background">
+    <!-- 가로 길이는 80%를 차지하다가 700px에서 더 이상 안늘어나도록 제한 -->
+    <div class="form-container">
+      <form>
+        <h3>Contact Us</h3>
+
+        <!-- label, input, textarea -->
+        <div class="email-box">
+          <p>
+            <label for="email">Your Email</label>
+          </p>
+          <input type="text" id="email" placeholder="email@example.com">
+        </div>
+        <div class="name">
+          <div class="first-name">
+            <p>
+              <label for="name">First Name</label>
+            </p>
+            <input type="text" id="name">
+          </div>
+          <div class="last-name">
+            <p>
+              <label for="name">Last Name</label>
+            </p>
+            <input type="text" id="name">
+          </div>
+        </div>
+        <div class="message-box">
+          <p>
+            <label for="message">Message</label>
+          </p>
+          <textarea name="textarea" id="message"></textarea>
+        </div>
+        <div class="last">
+          <div class="agree">
+            <input type="checkbox">
+            <label for="Agree">Agree</label>
+          </div>
+          <div class="send">
+            <button type="button">SEND</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
