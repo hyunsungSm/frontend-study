@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 공통 스타일 */
+    *{
+      box-sizing: border-box;
+    }
+
+    table{
+      border-collapse: collapse;
+    }
+
+    .cart-back{
+      background-color: lightsteelblue;
+      padding: 30px;
+    }
+
+    .inner{
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    td > img{
+      width: 40px;
+    }
+
+    
+    .cart-list{
+      width: 700px;
+      background-color: white;
+      border-radius: 10px;
+      text-align: center;
+    }
+    
+    .cart-list tr{
+      border-bottom: 2px solid lightsteelblue;
+    }
+    
+    .cart-list th, .cart-list td{
+      padding: 15px;
+    }
+    
+    .cart-list th:nth-child(2){
+      /* 의미: 다른 셀들은 최소 폭을 가져가면서 해당 셀은 최대 400px까지 늘어남 */
+      width: 400px;
+    }
+
+    .row2 td:nth-child(2){
+      text-align: start;
+    }
+
+    .btn-group{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      font-size: 20px;
+    }
+
+    button{
+      padding: 14px 20px;
+      font-size: 20px;
+      background-color: coral;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .foot{
+      text-align: end;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-back">
+    <!-- 가운데 정렬을 위한 div -->
+    <div class="inner">
+      <h2>장바구니</h2>
+      <table class="cart-list">
+        <!-- 4행 5열 -->
+        <tbody class="body">
+          <tr>
+            <th></th>
+            <th>ITEM</th>
+            <th>AMOUNT</th>
+            <th>PRICE</th>
+            <th>TOTAL</th>
+          </tr>
+          <tr class="row2">
+            <td><img src="./images/item1.png"></td>
+            <td>카메라</td>
+            <td>1</td>
+            <td>100,000</td>
+            <td>100,000</td>
+          </tr>
+          <tr class="row2">
+            <td><img src="./images/item2.png"></td>
+            <td>신발신발신발</td>
+            <td>2</td>
+            <td>59,000</td>
+            <td>118,000</td>
+          </tr>
+        </tbody>
+        <tfoot class="foot">
+          <tr>
+            <td colspan="5">주문금액 218,000원</td>
+            <!-- <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td> -->
+          </tr>
+        </tfoot>
+      </table>
+      <div class="btn-group">
+        <a href="#">계속 쇼핑하기</a>
+        <button type="button">구매하기</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
