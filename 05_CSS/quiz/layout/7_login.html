@@ -5,129 +5,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
+  <!-- 구글 머티리얼 아이콘 -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
   <style>
-    *{
+    * {
       box-sizing: border-box;
     }
 
-    .login-background{
+    .form-input {
       width: 100%;
-      background-color: white;
-      padding: 100px 0;
-    }
-    
-    .login-container{
-      width: 60%;
-      height: 500px;
-      max-width: 700px;
-      padding: 5px 10px 5px 10px;
-      background-color: white;
-      border: 2px solid gray;
-      border-radius: 10px;
-      margin: 0 auto;
-      background-image: url(https://ssl.pstatic.net/static/nid/login/sprite/m_sp_00_common_978240a6.png);
+      outline: none;
+      border: none;
+      cursor: pointer;
     }
 
-    h1{
-      text-align: center;
-      color: green;
-      font-size: 50px;
+    /* 버튼의 공통 스타일 */
+    .btn {
+      width: 100%;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
     }
-    .id-box{
-      width: 80%;
+    /* 버튼의 개별 스타일 */
+    .btn-login {
+      background-color: #09aa5c;
+      margin-top: 40px;
+    }
+    .btn-join {
+      border: 1px solid #09aa5c;
+      color: #09aa5c;
+      background-color: #fff;
+      margin-top: 10px;
+    }
+
+    .login-background {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* height: 100%; */
+      /* 뷰포트의 높이만큼 가득 채우려면 100%가 아님에 주의! */
+      height: 100vh;
+    }
+    .login-container {
+      width: 460px;
+      border: 1px solid #e1e3e5;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    
+    .login-container .id-box,
+    .login-container .pw-box {
       height: 60px;
-      background-color: white;
-      border: 2px solid gray;
-      border-radius: 8px 8px 0 0;
-      margin: 0 auto;
-      margin-top: 10%;
-      padding: 1px 10px 0 20px;
-      color: gray;
+      border: 1px solid #c5ccd2;
+      padding: 27px 15px 8px;
       position: relative;
     }
-
-    p{
-      position: absolute;
-      z-index: 1;
+    .login-container .id-box.focused,
+    .login-container .pw-box.focused {
+      border: 2px solid #09aa5c;
     }
 
-    input{
-      width: 80%;
-      border: none;
-      border-radius: 0;
-      cursor: pointer;
-      display: block;
-      position: absolute;
-      bottom: 10%;
+    .login-container .id-box {
+      border-radius: 8px 8px 0 0;
     }
-    
-    p{
-      margin-bottom: 0;
-    }
-
-    .pw-box{
-      width: 80%;
-      height: 59px;
-      background-color: white;
-      border: 2px solid gray;  
+    .login-container .pw-box {
       border-radius: 0 0 8px 8px;
       border-top: 0;
-      margin: 0 auto;
-      margin-bottom: 40px;
-      padding: 0 10px 5px 20px;
-      color: gray;
-      position: relative;
     }
 
-    button{
-      width: 80%;
-      padding: 15px;
-      display: flex;
-      margin: 0 auto;
-      flex-direction: column-reverse;
+    .login-container .text-label {
+      position: absolute;
+      bottom: 18px;
+      left: 15px;
+      color: rgba(0, 0, 0, 0.5);
+      transition: 0.3s;
+    }
+    .login-container .form-input:focus + .text-label,
+    .login-container .id-box.on .text-label,
+    .login-container .pw-box.on .text-label{
+      font-size: 12px;
+      bottom: 30px;
+    }
+    .login-container .icon-eye {
+      position: absolute;
+      top: 18px;
+      right: 15px;
       cursor: pointer;
     }
-
-    .btn1{
-      margin-bottom: 10px;
-      background-color: lightgreen;
-      border-radius: 10px;
-      border: 2px solid green;
-      font-weight: bold;
-      font-size: 15px;
-    }
-
-    .btn2{
-      background-color: white;
-      border-radius: 10px;
-      border: 2px solid green;
-      font-weight: bold;
-      font-size: 15px;
-      color: green;
-    }
-
   </style>
 </head>
 <body>
   <div class="login-background">
     <div class="login-container">
-      <h1>NAVER</h1>
       <div class="id-box">
-        <p class="p-up">
-          <label for="id">아이디 또는 전화번호</label>
-        </p>
-        <input type="text" name="id">
+        <input type="text" id="id" class="form-input">
+        <label for="id" class="text-label">아이디 또는 전화번호</label>
       </div>
       <div class="pw-box">
-        <p>
-          <label for="pw">비밀번호</label>
-        </p>
-        <input type="password" name="pw">
+        <input type="password" id="pw" class="form-input">
+        <label for="pw" class="text-label">비밀번호</label>
+        <span class="material-symbols-outlined icon-eye">visibility_off</span>
       </div>
 
-      <button type="button" class="btn1">로그인</button>
-      <button type="button" class="btn2">회원가입</button>
+      <button type="button" class="btn btn-login">로그인</button>
+      <button type="button" class="btn btn-join">회원가입</button>
     </div>
   </div>
+
+  <script>
+    const inputEls = document.querySelectorAll('input.form-input');
+    const eyeIcon = document.querySelector('.icon-eye');
+    const pwEl = document.querySelector('#pw')
+
+    
+      eyeIcon.addEventListener('click', function () {
+        if (pwEl.type === 'password'){
+          eyeIcon.textContent = 'visibility';
+          pwEl.setAttribute("type", "text");
+        } else if (pwEl.type === 'text'){
+          eyeIcon.textContent = 'visibility_off';
+          pwEl.setAttribute("type", "password");
+        }
+      }
+    );       
+
+    // 삼항 연산자 사용 시
+    // const isPassword = pwEl.type === 'password';
+    // pwEl.type = isPassword ? 'text' : 'password';
+    // eyeIcon.textContent = isPassword ? 'visibility' : 'visibility_off';
+
+    inputEls.forEach(function (inputEl) {
+      console.log(inputEl);
+      const parentEl = inputEl.parentElement; // 부모 요소를 반환
+      console.log(parentEl);
+
+
+      // focus: 포커스가 주어졌을 때 발생
+      inputEl.addEventListener('focus', function () {
+        parentEl.classList.add('focused');
+      });
+
+      // blur: 포커를 잃을 때 발생
+      inputEl.addEventListener('blur', function () {
+        parentEl.classList.remove('focused');
+      });
+
+      // 이벤트 추가 실습
+      // change: 요소의 값이 변경되고 포커스를 잃었을 때 발생
+      inputEl.addEventListener('change', function () {
+        console.log('change 이벤트 발생!!');
+        console.log(inputEl.value);
+
+        if (inputEl.value){ // input 요소에 값이 있으면
+          parentEl.classList.add('on');
+        } else {
+          parentEl.classList.remove('on');
+        }
+      })
+
+      // input: 요소가 입력을 받을 때마다 변경된 직후에 발생
+      inputEl.addEventListener('input', function () {
+        console.log('input 이벤트 발생')
+      });
+    });
+  </script>
 </body>
 </html>

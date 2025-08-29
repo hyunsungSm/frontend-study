@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script defer src="./homework.js"></script>
+
+  <style>
+    img{
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      border: 2px solid greenyellow;
+    }
+  </style>
+</head>
+<body>
+  <h1>날씨 확인</h1>
+  <form>
+    <label for="season">계절 </label>
+    <input type="radio" id="season" value="spring" class="spring">
+    <label for="spring">봄</label>
+    <input type="radio" id="season" value="summer" class="summer">
+    <label for="summer">여름</label>
+    <input type="radio" id="season" value="autumn" class="autumn">
+    <label for="autumn">가을</label>
+    <input type="radio" id="season" value="winter" class="winter">
+    <label for="winter">겨울</label>
+  </form>
+  <label for="temp">기온 </label>
+  <input type="text" class="temp">
+  <button type="button" class="check">확인</button>
+
+  <hr>
+
+  <h1>스폰지밥 뚱이 징징이</h1>
+  <select id="sponge">
+    <option value="spongebob" class="option">스폰지밥</option>
+    <option value="doong" class="option">뚱이</option>
+    <option value="jing" class="option">징징이</option>
+  </select>
+  <img src="./images/sponge.png" alt="캐릭터" id="charImg">
+</body>
+</html>
